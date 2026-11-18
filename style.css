@@ -1,0 +1,411 @@
+:root {
+    --champagne: #f4e8d8;
+    --cream: #fbf5ec;
+    --rose: #d9a8a8;
+    --rose-deep: #b57b7e;
+    --gold: #c8a574;
+    --ink: #4b2f33;
+    --line: rgba(75, 47, 51, 0.16);
+    --serif: "Cormorant Garamond", Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--champagne);
+    background-image:
+        radial-gradient(ellipse 50% 40% at 8% 4%, rgba(217, 168, 168, 0.45), transparent 70%),
+        radial-gradient(ellipse 45% 35% at 95% 90%, rgba(200, 165, 116, 0.3), transparent 70%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font: 400 1.05rem / 1.75 "Jost", system-ui, sans-serif;
+}
+
+.wrap {
+    max-width: 1040px;
+    margin: 110px auto 0;
+    padding: 0 28px;
+}
+
+h2 {
+    margin-bottom: 28px;
+    font: 500 clamp(2.2rem, 5vw, 3.2rem) / 1.1 var(--serif);
+}
+
+h2 em {
+    color: var(--rose-deep);
+}
+
+/* Portada */
+.hero {
+    display: grid;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 72px 28px 20px;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-copy > * {
+    animation: rise 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-copy > :nth-child(2) { animation-delay: 150ms; }
+.hero-copy > :nth-child(3) { animation-delay: 300ms; }
+.hero-copy > :nth-child(4) { animation-delay: 450ms; }
+
+h1 {
+    font: 500 clamp(4.5rem, 12vw, 9.5rem) / 0.9 var(--serif);
+    letter-spacing: -0.02em;
+}
+
+.sub {
+    margin: 10px 0 24px;
+    color: var(--rose-deep);
+    font: italic 500 clamp(1.6rem, 3.4vw, 2.3rem) / 1.2 var(--serif);
+}
+
+.lead {
+    max-width: 480px;
+    font-size: 1.12rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 32px;
+}
+
+.btn {
+    padding: 14px 34px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--cream);
+    text-decoration: none;
+    transition: background 200ms, translate 200ms;
+}
+
+.btn:hover {
+    background: var(--rose-deep);
+    translate: 0 -2px;
+}
+
+.link {
+    color: var(--ink);
+    text-decoration-color: var(--gold);
+    text-underline-offset: 6px;
+}
+
+/* Foto en forma de ventanilla de avión */
+.window {
+    width: min(100%, 360px);
+    aspect-ratio: 3 / 4;
+    margin: 0 auto;
+    padding: 14px;
+    border-radius: 46% / 36%;
+    background: linear-gradient(150deg, #fbf1e1, #dcc3a0);
+    box-shadow: 0 40px 70px -30px rgba(120, 70, 72, 0.55);
+    animation: rise 1100ms 200ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.pane {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 44% / 35%;
+    background: linear-gradient(160deg, var(--rose), var(--rose-deep));
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 6rem;
+}
+
+.pane img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+/* Pase de abordar */
+.pass {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 210px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--cream);
+    box-shadow: 0 30px 60px -36px rgba(120, 70, 72, 0.5);
+}
+
+.pass::before,
+.pass::after {
+    position: absolute;
+    left: calc(100% - 210px - 12px);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--champagne);
+    content: "";
+}
+
+.pass::before { top: -12px; }
+.pass::after { bottom: -12px; }
+
+.pass-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 36px;
+    padding: 32px 38px;
+}
+
+.pass small {
+    display: block;
+    color: var(--rose-deep);
+    font: italic 500 1.1rem / 1.2 var(--serif);
+}
+
+.pass b {
+    font: 500 1.35rem / 1.3 var(--serif);
+}
+
+.pass-stub {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 32px 28px;
+    border-left: 2px dashed var(--rose);
+}
+
+.barcode {
+    display: block;
+    height: 56px;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 6px, transparent 6px 10px, var(--ink) 10px 13px, transparent 13px 15px);
+    opacity: 0.8;
+}
+
+/* Sobre mí */
+.about {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: 40px;
+}
+
+.about h2 {
+    margin: 0;
+}
+
+.about-text p + p {
+    margin-top: 16px;
+}
+
+/* Valores */
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.values article {
+    padding: 32px 28px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: rgba(251, 245, 236, 0.7);
+    transition: translate 250ms, box-shadow 250ms;
+}
+
+.values article:hover {
+    translate: 0 -6px;
+    box-shadow: 0 24px 40px -28px rgba(120, 70, 72, 0.5);
+}
+
+.values span {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 18px;
+    place-items: center;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    font-size: 1.6rem;
+}
+
+.values h3 {
+    margin-bottom: 8px;
+    font: 600 1.7rem / 1.1 var(--serif);
+}
+
+/* Ruta */
+.intro {
+    max-width: 620px;
+    margin-bottom: 44px;
+}
+
+.route {
+    position: relative;
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    list-style: none;
+}
+
+.route::before {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    left: 0;
+    border-top: 2px dashed var(--rose);
+    content: "";
+}
+
+.route li {
+    position: relative;
+    padding-top: 44px;
+}
+
+.route li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border: 3px solid var(--rose-deep);
+    border-radius: 50%;
+    background: var(--champagne);
+    content: "";
+}
+
+.route li:last-child::before {
+    background: var(--rose-deep);
+    color: #fff;
+    content: "✈";
+    font-size: 0.75rem;
+}
+
+.route b {
+    display: block;
+    font: 600 1.6rem / 1.2 var(--serif);
+}
+
+.route span {
+    font-size: 0.97rem;
+}
+
+/* Cierre */
+.foot {
+    margin-top: 130px;
+    padding: 60px 24px 70px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+}
+
+.bye {
+    margin-bottom: 6px;
+    color: var(--rose-deep);
+    font: italic 500 clamp(2.4rem, 7vw, 3.6rem) / 1.1 var(--serif);
+}
+
+/* Celular */
+@media (max-width: 860px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 44px;
+        text-align: center;
+    }
+
+    .window {
+        width: min(78%, 320px);
+        order: -1;
+    }
+
+    .lead {
+        margin-inline: auto;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .wrap {
+        margin-top: 80px;
+    }
+
+    .pass {
+        grid-template-columns: 1fr;
+    }
+
+    .pass::before,
+    .pass::after {
+        display: none;
+    }
+
+    .pass-main {
+        grid-template-columns: 1fr;
+        padding: 26px 24px;
+    }
+
+    .pass-stub {
+        border-top: 2px dashed var(--rose);
+        border-left: 0;
+        padding: 24px;
+    }
+
+    .about,
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+    .route {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .route::before {
+        top: 6px;
+        right: auto;
+        bottom: 6px;
+        left: 12px;
+        border-top: 0;
+        border-left: 2px dashed var(--rose);
+    }
+
+    .route li {
+        padding: 0 0 0 52px;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        translate: 0 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
